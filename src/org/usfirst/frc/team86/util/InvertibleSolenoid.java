@@ -2,9 +2,6 @@ package org.usfirst.frc.team86.util;
 
 import edu.wpi.first.wpilibj.Solenoid;
 
-/**
- * @author Shreya Ravi
- */
 public class InvertibleSolenoid implements SingleSolenoid {
 
   private final Solenoid solenoid;

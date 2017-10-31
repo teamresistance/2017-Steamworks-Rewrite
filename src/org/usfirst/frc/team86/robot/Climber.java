@@ -6,9 +6,6 @@ import org.usfirst.frc.team86.util.Updatable;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SpeedController;
 
-/**
- * Created by shrey on 2/20/2017.
- */
 public class Climber implements Updatable {
 
   private SpeedController climberMotor;

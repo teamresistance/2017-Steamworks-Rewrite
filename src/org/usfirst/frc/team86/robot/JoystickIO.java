@@ -6,9 +6,6 @@ import org.usfirst.frc.team86.util.Button;
 
 import java.util.ArrayList;
 
-/**
- * Created by Shreya on 2/20/2017.
- */
 public class JoystickIO {
 	// Joysticks
 	public static Joystick leftJoystick = new Joystick(0);

@@ -2,9 +2,6 @@ package org.usfirst.frc.team86.util;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-/**
- * @author Frank McCoy
- */
 public class CodriverBox {
 
   private Joystick input;

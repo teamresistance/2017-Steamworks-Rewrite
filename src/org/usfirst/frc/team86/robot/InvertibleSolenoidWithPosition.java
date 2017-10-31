@@ -3,9 +3,6 @@ package org.usfirst.frc.team86.robot;
 import org.usfirst.frc.team86.util.InvertibleDigitalInput;
 import org.usfirst.frc.team86.util.InvertibleSolenoid;
 
-/**
- * @author Shreya Ravi
- */
 public class InvertibleSolenoidWithPosition extends InvertibleSolenoid {
 
   private final InvertibleDigitalInput retractedLimit;
