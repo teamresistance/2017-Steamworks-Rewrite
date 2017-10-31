@@ -1,0 +1,82 @@
+package org.usfirst.frc.team86.robot;
+
+import org.usfirst.frc.team86.util.Time;
+
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Relay;
+
+/**
+ * The VM is configured to automatically run this class, and to call the
+ * functions corresponding to each mode, as described in the IterativeRobot
+ * documentation. If you change the name of this class or the package after
+ * creating this project, you must also update the manifest file in the resource
+ * directory.
+ */
+public class Robot extends IterativeRobot {
+	
+	// Robot States
+	private Teleop teleop;
+	
+	// Robot Subsystems
+	private Drive drive;
+	private Climber climber;
+	private Gear gear;
+	private Shooter shooter;
+	
+	@Override
+	public void robotInit() {
+		// subsystem instantiations
+		drive = new Drive(IO.leftFrontMotor,
+				IO.leftRearMotor,
+				IO.rightFrontMotor,
+				IO.rightRearMotor,
+				IO.navX);
+		climber = new Climber(IO.climberMotor, IO.pdp);
+		gear = new Gear(IO.rotateSolenoid, IO.gripSolenoid,
+				IO.extendSolenoid, IO.gearLights,
+				IO.gearFindBanner, IO.gearAlignBanner,
+				IO.gearRotatorMotor);
+		shooter = new Shooter(IO.shooterMotor, IO.feederMotor,
+				IO.agitatorMotor, IO.vibratorMotor);
+		
+		// robot state instantiations
+		teleop = new Teleop(drive, climber, gear, shooter);
+	}
+	
+	@Override
+	public void robotPeriodic() {
+		
+	}
+
+	
+	@Override
+	public void autonomousInit() {
+		
+	}
+
+	
+	@Override
+	public void autonomousPeriodic() {
+		
+	}
+	
+	@Override
+	public void teleopInit() {
+		IO.navX.reset();
+		teleop.init();
+	}
+
+	@Override
+	public void teleopPeriodic() {
+		IO.compressorRelay.set(IO.compressor.enabled() ? Relay.Value.kForward : Relay.Value.kOff);
+		Time.update();
+		JoystickIO.update();
+		teleop.update();
+	}
+
+	@Override
+	public void testPeriodic() {
+		
+	}
+}
+
