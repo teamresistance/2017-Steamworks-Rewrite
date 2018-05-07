@@ -15,8 +15,8 @@ public class Climber implements Updatable {
   
   
   // TODO read from file
-  private double timeDuration = 0.1;
-  private double spikeLimit = 70;
+  private double timeDuration;
+  private double spikeLimit;
   
   public Climber(SpeedController climberMotor, PowerDistributionPanel pdp) {
 	  this.climberMotor = climberMotor;

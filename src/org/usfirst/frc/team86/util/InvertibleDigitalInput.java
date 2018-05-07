@@ -12,6 +12,6 @@ public class InvertibleDigitalInput {
   }
 
   public boolean get() {
-    return isInverted ? !limitSwitch.get() : limitSwitch.get();
+    return (isInverted ? !limitSwitch.get() : limitSwitch.get());
   }
 }

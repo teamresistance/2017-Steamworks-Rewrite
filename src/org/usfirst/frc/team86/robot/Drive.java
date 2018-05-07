@@ -1,10 +1,10 @@
 package org.usfirst.frc.team86.robot;
 
-import org.usfirst.frc.team86.util.Util;
 import org.usfirst.frc.team86.util.Gyro;
 import org.usfirst.frc.team86.util.MecanumDrive;
 import org.usfirst.frc.team86.util.MecanumDrive.DriveType;
 import org.usfirst.frc.team86.util.Updatable;
+import org.usfirst.frc.team86.util.Util;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -16,6 +16,12 @@ public class Drive implements Updatable {
 	
 	private boolean grabAngleOnce = false;
 	private double holdAngle = 0;
+	
+	private double kP = 0.025;
+	private double kI;
+	private double kD = 0.03;
+	private double kF;
+	private double maxI;
 
 	public Drive(SpeedController leftFrontMotor,
 			SpeedController leftRearMotor, 
@@ -29,7 +35,7 @@ public class Drive implements Updatable {
 	
 	@Override
 	public void init() {
-		
+		drive.setPIDValues(kP, kI, kD, kF, maxI);
 	}
 	
 	public void update() {

@@ -51,8 +51,8 @@ public class Gear implements Updatable {
 		switch(currentState) {
 		case 0: // Default
 			// control lights
-			// 
-			setPos(true, false, false);
+			readyToPlace();
+//			setPos(true, false, false);
 			if(JoystickIO.btnPickupGear.onButtonPressed()) {
 				currentState = 1;
 				initialTime = Time.getTime();
@@ -132,6 +132,14 @@ public class Gear implements Updatable {
 			currentState = 0;
 			break;
 		}
+	}
+	
+	public void readyToPlace() {
+		setPos(true, false, false);
+	}
+	
+	public void searching() {
+		
 	}
 	
 	public void setPos(boolean grip, boolean rotate, boolean extend) {

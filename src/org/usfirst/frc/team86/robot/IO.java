@@ -7,12 +7,16 @@ import org.usfirst.frc.team86.util.InvertibleSolenoid;
 import org.usfirst.frc.team86.util.NavX;
 import org.usfirst.frc.team86.util.SingleSolenoid;
 
-import com.ctre.CANTalon;
-import com.kauailabs.navx.frc.AHRS;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.cscore.AxisCamera;
 import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.VictorSP;
 
 public class IO {
 
@@ -22,7 +26,7 @@ public class IO {
 	public static PowerDistributionPanel pdp = new PowerDistributionPanel(0);
 
 	// Motors -- shooting
-	public static CANTalon shooterMotor = new CANTalon(3);
+	public static TalonSRX shooterMotor = new TalonSRX(3);
 
 	public static VictorSP feederMotor = new VictorSP(2);
 	public static VictorSP agitatorMotor = new VictorSP(6);
@@ -58,8 +62,8 @@ public class IO {
 	// NavX-MXP navigation sensor
 	public static Gyro navX = new NavX();
 
-	public static UsbCamera gearCamera = CameraServer.getInstance().startAutomaticCapture(0);
-	public static AxisCamera shooterCamera = new AxisCamera("Shooter Camera", "10.0.86.19");
+//	public static UsbCamera gearCamera = CameraServer.getInstance().startAutomaticCapture(0);
+//	public static AxisCamera shooterCamera = new AxisCamera("Shooter Camera", "10.0.86.19");
 			//CameraServer.getInstance().addAxisCamera("Axis Camera", "axis-camera.local");
 	
 
@@ -72,7 +76,7 @@ public class IO {
 		IO.feederMotor.setInverted(true);
 
 //		gearCamera.setFPS(20);
-		IO.gearCamera.setResolution(320, 240);
+//		IO.gearCamera.setResolution(320, 240);
 //		IO.gearCamera.setBrightness(0);
 	}
 }

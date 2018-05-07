@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Relay;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	
+						//TODO: use TimedRobot
 	// Robot States
 	private Teleop teleop;
 	
@@ -25,19 +25,40 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void robotInit() {
+		//TODO: setPeriod(x ms)
 		// subsystem instantiations
+		
+		// With all configurations
+		
+		/*
+		drive = configuration.get(Drive.class, "drive", IO.leftFrontMotor,
+				IO.leftRearMotor,
+				IO.rightFrontMotor,
+				IO.rightRearMotor,
+				IO.navX);
+		climber = configuration.get(Climber.class, "climber", IO.climberMotor, IO.pdp);
+		gear = configuration.get(Gear.class, "gear", IO.rotateSolenoid, IO.gripSolenoid,
+				IO.extendSolenoid, IO.gearLights,
+				IO.gearFindBanner, IO.gearAlignBanner,
+				IO.gearRotatorMotor);
+		shooter = configuration.get(Shooter.class, "shooter", IO.shooterMotor, IO.feederMotor,
+				IO.agitatorMotor, IO.vibratorMotor);
+		*/
+		
+		// To test Configuration with Shooter RPM
 		drive = new Drive(IO.leftFrontMotor,
 				IO.leftRearMotor,
 				IO.rightFrontMotor,
 				IO.rightRearMotor,
 				IO.navX);
+		
+		shooter = new Shooter(IO.shooterMotor, IO.feederMotor, IO.agitatorMotor, IO.vibratorMotor);
 		climber = new Climber(IO.climberMotor, IO.pdp);
 		gear = new Gear(IO.rotateSolenoid, IO.gripSolenoid,
 				IO.extendSolenoid, IO.gearLights,
 				IO.gearFindBanner, IO.gearAlignBanner,
 				IO.gearRotatorMotor);
-		shooter = new Shooter(IO.shooterMotor, IO.feederMotor,
-				IO.agitatorMotor, IO.vibratorMotor);
+		
 		
 		// robot state instantiations
 		teleop = new Teleop(drive, climber, gear, shooter);

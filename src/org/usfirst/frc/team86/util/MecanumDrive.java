@@ -15,9 +15,9 @@ public class MecanumDrive {
 	private Gyro gyro;
 	
 	// PID Constants -- TODO read from file
-	private double kP = 0.025;
+	private double kP;
 	private double kI;
-	private double kD = 0.03;
+	private double kD;
 	private double kF;
 	private double maxI;
 	
@@ -97,7 +97,13 @@ public class MecanumDrive {
 		}
 	}
 	
-	
+	public void setPIDValues(double kP, double kI, double kD, double kF, double maxI) {
+		this.kP = kP;
+		this.kI = kI;
+		this.kD = kD;
+		this.kF = kF;
+		this.maxI = maxI;
+	}
 	
 	public enum DriveType {
 		STICK_FIELD,

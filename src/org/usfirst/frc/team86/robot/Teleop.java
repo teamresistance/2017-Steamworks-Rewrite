@@ -25,7 +25,6 @@ public class Teleop implements Updatable {
 		for (Updatable subsystem: subsystems) {
 			subsystem.update();
 		}
-		SmartDashboard.putNumber("# Subsystems", subsystems.length);
 	}
 
 }
