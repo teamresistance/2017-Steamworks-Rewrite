@@ -1,4 +1,4 @@
-package org.usfirst.frc.team86.robot;
+package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
 

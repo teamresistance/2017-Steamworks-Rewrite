@@ -1,4 +1,4 @@
-package org.usfirst.frc.team86.util;
+package frc.util;
 
 import org.usfirst.frc.team86.robot.JoystickIO;
 import org.usfirst.frc.team86.util.NavX;

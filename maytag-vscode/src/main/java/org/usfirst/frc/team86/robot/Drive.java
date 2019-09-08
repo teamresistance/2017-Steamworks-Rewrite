@@ -1,4 +1,4 @@
-package org.usfirst.frc.team86.robot;
+package frc.robot;
 
 import org.usfirst.frc.team86.util.Gyro;
 import org.usfirst.frc.team86.util.MecanumDrive;

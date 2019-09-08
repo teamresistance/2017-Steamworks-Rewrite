@@ -1,4 +1,4 @@
-package org.usfirst.frc.team86.util;
+package frc.util;
 
 import edu.wpi.first.wpilibj.Solenoid;
 
