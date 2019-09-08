@@ -1,4 +1,4 @@
-package frc.util;
+package org.usfirst.frc.team86.util;
 
 public abstract class Gyro {
 	

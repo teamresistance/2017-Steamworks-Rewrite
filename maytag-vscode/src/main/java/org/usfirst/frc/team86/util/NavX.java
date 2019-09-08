@@ -1,4 +1,4 @@
-package frc.util;
+package org.usfirst.frc.team86.util;
 
 import com.kauailabs.navx.frc.AHRS;
 

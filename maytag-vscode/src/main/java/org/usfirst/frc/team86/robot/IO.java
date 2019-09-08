@@ -1,5 +1,4 @@
-package frc.robot;
-
+package org.usfirst.frc.team86.robot;
 
 import org.usfirst.frc.team86.util.Gyro;
 import org.usfirst.frc.team86.util.InvertibleDigitalInput;
