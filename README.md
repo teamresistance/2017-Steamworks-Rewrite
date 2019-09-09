@@ -6,7 +6,7 @@ Built for Eclipse, this is the 2017 bot Maytag, rewritten to follow the framewor
   ![Image of Joystick](https://github.com/teamresistance/RolloverBot-2019/blob/master/RO/images/joystick360.jpg)
   
   * Joystick 1 (Left)
-    * Button 10: Auto
+    * Button 10: Autonomous
     
   * Joystick 2 (Right)
     * Button 3: Hold Center
