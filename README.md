@@ -1,5 +1,5 @@
 # 2017-Steamworks-Rewrite
-Built for Eclipse, this is the 2017 bot Maytag, rewritten to follow the framework set this year. OUTDATED (Eclipse)
+Built for Eclipse, this is the 2017 bot Maytag, rewritten to follow the framework set this year. UPDATED (VSCode)
 
 ### Joystick Assignments
 
