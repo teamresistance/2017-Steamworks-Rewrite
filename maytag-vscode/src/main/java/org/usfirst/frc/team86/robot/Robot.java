@@ -88,7 +88,17 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void robotPeriodic() {
-		
+		if (!SmartDashboard.getBoolean("XBOXCONTROL", false)) {
+			teleop.update();
+			if (JoystickIO.btnGyroReset.onButtonPressed()) {
+				IO.navX.reset();
+			}
+		} else {
+			xbxTele.update();
+			if (JoystickIO.xbxBtnGyroReset.onButtonPressed()) {
+				IO.navX.reset();
+			}
+		}	
 	}
 
 	
@@ -115,18 +125,6 @@ public class Robot extends IterativeRobot {
 		IO.compressorRelay.set(IO.compressor.enabled() ? Relay.Value.kForward : Relay.Value.kOff);
 		Time.update();
 		JoystickIO.update();
-
-		if (!SmartDashboard.getBoolean("XBOXCONTROL", false)) {
-			teleop.update();
-			if (JoystickIO.btnGyroReset.onButtonPressed()) {
-				IO.navX.reset();
-			}
-		} else {
-			xbxTele.update();
-			if (JoystickIO.xbxBtnGyroReset.onButtonPressed()) {
-				IO.navX.reset();
-			}
-		}
 	}
 
 	@Override
