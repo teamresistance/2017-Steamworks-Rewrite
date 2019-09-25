@@ -1,6 +1,10 @@
 # 2017-Steamworks-Rewrite
 Built for Eclipse, this is the 2017 bot Maytag, rewritten to follow the framework set this year. OUTDATED (Eclipse)
 
+# Descripton:
+  * Mecanum Drive
+  * Shoots Balls and picks up and places and gears
+
 ### Joystick Assignments
 
   ![Image of Joystick](https://github.com/teamresistance/RolloverBot-2019/blob/master/RO/images/joystick360.jpg)
