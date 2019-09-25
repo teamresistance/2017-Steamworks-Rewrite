@@ -3,7 +3,8 @@ Built for Eclipse, this is the 2017 bot Maytag, rewritten to follow the framewor
 
 # Descripton:
   * Mecanum Drive
-  * Shoots Balls and picks up and places and gears
+  * Shoots Balls
+  * Picks up and places and gears
 
 ### Joystick Assignments
 
