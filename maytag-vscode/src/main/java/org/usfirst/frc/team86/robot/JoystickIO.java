@@ -22,6 +22,15 @@ public class JoystickIO {
 	public static Button btnHoldLeft;
 	public static Button btnHoldCenter;
 	public static Button btnHoldRight;
+
+	//public static Button btnSpeedShiftUp;
+	public static Button xbxBtnSpeedShiftUp;
+	//public static Button btnSpeedShiftDown;
+	public static Button xbxBtnSpeedShiftDown;
+	//public static Button btnSpeedShiftUp;
+	public static Button xbxSBtnSpeedShiftUp;
+	//public static Button btnSpeedShiftDown;
+	public static Button xbxSBtnSpeedShiftDown;
 	
 	public static Button btnHoldLeftHopper;
 	public static Button btnHoldRightHopper;
@@ -80,6 +89,14 @@ public class JoystickIO {
 			btnHoldLeftHopper = createButton(rightJoystick, 8);
 			btnHoldRightHopper = createButton(rightJoystick, 9);
 			btnAuto = createButton(leftJoystick, 10);
+
+			//btnSpeedShiftUp = createButton();
+			xbxBtnSpeedShiftUp = createButton(xboxController, 3);
+			//btnSpeedShiftDown;
+			xbxBtnSpeedShiftDown = createButton(xboxController, 2);
+			xbxSBtnSpeedShiftUp = createButton(xboxController, 4);
+			//btnSpeedShiftDown;
+			xbxSBtnSpeedShiftDown = createButton(xboxController, 1);
 		} catch(Exception e) {}
 	}
 }

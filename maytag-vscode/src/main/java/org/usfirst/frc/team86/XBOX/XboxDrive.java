@@ -24,6 +24,8 @@ public class XboxDrive implements Updatable {
 	private double kF;
 	private double maxI;
 
+	private double scaleFactor;
+
 	public XboxDrive(SpeedController leftFrontMotor,
 			SpeedController leftRearMotor, 
 			SpeedController rightFrontMotor, 
@@ -32,6 +34,7 @@ public class XboxDrive implements Updatable {
 		this.drive = new MecanumDrive(leftFrontMotor, leftRearMotor,
 				rightFrontMotor, rightRearMotor, gyro);
 		this.gyro = gyro;
+		scaleFactor = 1;
 	}
 	
 	@Override
@@ -40,9 +43,22 @@ public class XboxDrive implements Updatable {
 	}
 	
 	public void update() {
-		double scaledX = Util.scaleInput(JoystickIO.xboxController.getRawAxis(4));
-		double scaledY = Util.scaleInput(JoystickIO.xboxController.getRawAxis(5));
-		double scaledRotate = Util.scaleInput(JoystickIO.xboxController.getRawAxis(0));
+		SmartDashboard.putNumber("scaleFactor", scaleFactor);
+		double scaledX = Util.scaleInput(JoystickIO.xboxController.getRawAxis(4) * scaleFactor);
+		double scaledY = Util.scaleInput(JoystickIO.xboxController.getRawAxis(5) * scaleFactor);
+		double scaledRotate = Util.scaleInput(JoystickIO.xboxController.getRawAxis(0) * scaleFactor);
+
+		if (JoystickIO.xbxBtnSpeedShiftUp.onButtonPressed()) {
+			scaleFactor += .1;
+		} else if (JoystickIO.xbxBtnSpeedShiftDown.onButtonPressed()) {
+			scaleFactor -= .1;
+		}
+
+		if (scaleFactor > 1) {
+			scaleFactor = 1;
+		} else if(scaleFactor < .3) {
+			scaleFactor = .3;
+		}
 		
 		if (JoystickIO.btnHoldLeft.isDown()) {
 			drive.drive(DriveType.ROTATE_PID, scaledX, scaledY, 0, 330);

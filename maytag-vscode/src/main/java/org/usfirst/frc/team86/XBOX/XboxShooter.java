@@ -16,6 +16,7 @@ public class XboxShooter implements Updatable {
 	private VictorSP feederMotor;
 	private VictorSP agitatorMotor;
 	private VictorSP vibratorMotor;
+	private double scaleFactor;
 	
 	private double targetRPM = 3100.0;
 
@@ -33,13 +34,27 @@ public class XboxShooter implements Updatable {
 		shooterMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		shooterMotor.setInverted(false);
 		shooterMotor.setSensorPhase(false);
+		scaleFactor = 1;
 	}
 
 	@Override
 	public void update() {
+
+		if (JoystickIO.xbxSBtnSpeedShiftUp.onButtonPressed()) {
+			scaleFactor += .1;
+		} else if (JoystickIO.xbxSBtnSpeedShiftDown.onButtonPressed()) {
+			scaleFactor -= .1;
+		}
+
+		if (scaleFactor > 1) {
+			scaleFactor = 1;
+		} else if(scaleFactor < .3) {
+			scaleFactor = .3;
+		}
+
 		if (JoystickIO.xbxBtnShooter.isDown()) {
 			feederMotor.set(1.0);
-			shooterMotor.set(ControlMode.Velocity, targetRPM);
+			shooterMotor.set(ControlMode.Velocity, targetRPM * scaleFactor);
 			if (JoystickIO.xbxBtnAgitator.isDown()) {
 				agitatorMotor.set(0.45);
 				vibratorMotor.set(0.6);
